@@ -44,4 +44,3 @@ function updateCoutry(markup){
   countryCard.innerHTML = markup
 }
 
-// 
