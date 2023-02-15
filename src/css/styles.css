@@ -26,3 +26,8 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+.country-list{
+text-decoration: none;
+list-style: none;
+}
