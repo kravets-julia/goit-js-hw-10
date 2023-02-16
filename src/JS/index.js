@@ -22,7 +22,7 @@ function onInputCountry(e){
   if (!e.target.value.trim()){
         return
       }
-      searchCountry.fetchCountries().then(data => newMarkup(data))
+      searchCountry.fetchCountries().then(data => newMarkup(data)).catch(error => console.log(error));
 }
 
 
@@ -73,10 +73,9 @@ return `
     </div>
         <p><b>Capital:</b> ${capital}</h2>
         <p><b>Population:</b> ${population}</p>
-        <p><b>Languages:</b> ${Object.values(languages).join(",")}</p>
+        <p><b>Languages:</b> ${Object.values(languages).join(', ')}</p>
 </div>
 `
-
 }
 
 

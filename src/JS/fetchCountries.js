@@ -21,7 +21,7 @@ export default class SearchCountry {
 // .then(data => {
 //    console.log(data)
 // })
-// .catch(error => console.log(error));
+
 }
 
 get country(){
