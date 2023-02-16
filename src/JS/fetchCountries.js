@@ -12,22 +12,18 @@ export default class SearchCountry {
         return fetch(URL).then(response => {
             if (!response.ok) {
                Notiflix.Notify.failure ('Oops, there is no country with that name') 
- }
-
-          return response.json()
+                 }
+          return response.json()  
+       
     })
+    
 
-.then(data => {
-    if  (data.length > 10){
-    Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
-
-return;
+// .then(data => {
+//    console.log(data)
+// })
+// .catch(error => console.log(error));
 }
 
-return data
-})
-.catch(err => console.log(err));
-}
 get country(){
     return this.name
 }

@@ -8,6 +8,8 @@ const input = document.getElementById('search-box')
 const countryList = document.querySelector('.country-list')
 const countryCard = document.querySelector('.country-info')
 
+console.log(countryCard)
+
 const searchCountry = new SearchCountry();
 
 const DEBOUNCE_DELAY = 300;
@@ -24,31 +26,43 @@ function onInputCountry(e){
 }
 
 
-let markup
+let markup=''
 
       function newMarkup(data) {
         if(!data) 
 {return}
       
       if (data.length === 1) {
-        markup = data
-        .reduce((markup, country) => 
-  createMarkup(country) + markup, '');
-  countryCard.innerHTML = markup;
-      }
+        createCountryCard()
+       }
+
       if(data.length >= 2 && data.length <= 10){
-        let listOfCountry = '';
-   data.forEach(country => {
-     listOfCountry += `<li class="list-item">
-      <img src="${country.flags.svg}" width=20px/>
-      <span> ${country.name.common}</span>
-      </li>`;
-      countryList.innerHTML = listOfCountry;
-    });
-  
-      }
+        createListOfCoutry()
+  }
+
+    if  (data.length > 10){
+      Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
+    }
     }
 
+    function createListOfCoutry(data){
+      let listOfCountry = '';
+      data.forEach(country => {
+        listOfCountry += `<li class="list-item">
+         <img src="${country.flags.svg}" width=20px/>
+         <span> ${country.name.common}</span>
+         </li>`;
+         countryList.innerHTML = listOfCountry;
+         console.log(countryList)
+       });
+    }
+
+function createCountryCard (data){
+  markup = data
+  .reduce((markup, country) => 
+createMarkup(country) + markup, '');
+countryCard.innerHTML = markup;
+}
 
 function createMarkup({ name, capital, flags, languages, population }){
 return `
@@ -59,9 +73,10 @@ return `
     </div>
         <p><b>Capital:</b> ${capital}</h2>
         <p><b>Population:</b> ${population}</p>
-        <p><b>Languages:</b> ${languages.spa}</p>
+        <p><b>Languages:</b> ${Object.values(languages).join(",")}</p>
 </div>
 `
+
 }
 
 
