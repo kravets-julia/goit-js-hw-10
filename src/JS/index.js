@@ -33,11 +33,11 @@ let markup=''
 {return}
       
       if (data.length === 1) {
-        createCountryCard()
+        createCountryCard(data)
        }
 
       if(data.length >= 2 && data.length <= 10){
-        createListOfCoutry()
+        createListOfCoutry(data)
   }
 
     if  (data.length > 10){
@@ -73,7 +73,7 @@ return `
     </div>
         <p><b>Capital:</b> ${capital}</h2>
         <p><b>Population:</b> ${population}</p>
-        <p><b>Languages:</b> ${Object.values(languages).join(', ')}</p>
+        <p><b>Languages:</b> ${Object.values(languages)}</p>
 </div>
 `
 }
