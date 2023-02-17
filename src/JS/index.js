@@ -44,7 +44,7 @@ function newMarkup(data) {
    }
 
    else {
-  Notiflix.info ("Too many matches found. Please enter a more specific name.") 
+  Notiflix.Notify.info ("Too many matches found. Please enter a more specific name.") 
     }
   
     }
