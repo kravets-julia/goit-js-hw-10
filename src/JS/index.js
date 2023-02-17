@@ -2,6 +2,9 @@ import '../css/styles.css';
 
 import debounce from 'lodash.debounce';
 import SearchCountry from './fetchCountries';
+import Notiflix, {Notify} from "notiflix";
+
+
 
 
 const input = document.getElementById('search-box')
@@ -28,21 +31,23 @@ function onInputCountry(e){
 
 let markup=''
 
-      function newMarkup(data) {
+function newMarkup(data) {
         if(!data) 
 {return}
-      
-      if (data.length === 1) {
-        createCountryCard(data)
-       }
-
-      if(data.length >= 2 && data.length <= 10){
-        createListOfCoutry(data)
+        
+ if(data.length >= 2 && data.length <= 10){
+        createListOfCoutry()
   }
+  
+  if (data.length === 1) {
+    createCountryCard()
+   }
 
-    if  (data.length > 10){
-      Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
+   if(data.length > 10)
+{
+  Notiflix.Notify.info ("Too many matches found. Please enter a more specific name.") 
     }
+  
     }
 
     function createListOfCoutry(data){
@@ -53,7 +58,7 @@ let markup=''
          <span> ${country.name.common}</span>
          </li>`;
          countryList.innerHTML = listOfCountry;
-         console.log(countryList)
+        //  console.log(countryList)
        });
     }
 

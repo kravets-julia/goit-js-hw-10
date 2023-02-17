@@ -18,10 +18,6 @@ export default class SearchCountry {
     })
     
 
-// .then(data => {
-//    console.log(data)
-// })
-
 }
 
 get country(){
