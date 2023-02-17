@@ -35,15 +35,15 @@ function newMarkup(data) {
         if(!data) 
 {return}
         
- if(data.length >= 2 && data.length <= 10){
+ else if(data.length >= 2 && data.length <= 10){
         createListOfCoutry()
   }
   
-  if (data.length === 1) {
+  else if (data.length === 1) {
     createCountryCard()
    }
 
-   if(data.length > 10)
+   else (data.length > 10)
 {
   Notiflix.Notify.info ("Too many matches found. Please enter a more specific name.") 
     }
