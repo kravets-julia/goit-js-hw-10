@@ -36,16 +36,15 @@ function newMarkup(data) {
 {return}
         
  else if(data.length >= 2 && data.length <= 10){
-        createListOfCoutry()
+        createListOfCoutry(data)
   }
   
   else if (data.length === 1) {
-    createCountryCard()
+    createCountryCard(data)
    }
 
-   else (data.length > 10)
-{
-  Notiflix.Notify.info ("Too many matches found. Please enter a more specific name.") 
+   else {
+  Notiflix.info ("Too many matches found. Please enter a more specific name.") 
     }
   
     }
